@@ -1,0 +1,50 @@
+h1 {
+    font-size: 7em;
+    font-family: Calibri Light;
+    margin-left: 5%;
+    margin-bottom: 0;
+}
+
+figure {
+    margin-left: 8%;
+}
+
+div p:nth-of-type(1) {
+    font-weight: bold;
+    font-size: 1.6em;
+}
+
+div p:nth-of-type(2) {
+    font-style: italic;
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.blueberry{
+    border-top: 1px solid black ;
+    padding: 1em;
+    height: 10%;
+    width: 30%;
+    text-align: center;
+    background: #0b77b7;
+
+}
+
+.cloudberry {
+    border-top: 1px solid black ;
+    padding: 1em;
+    height: 10%;
+    width: 30%;
+    text-align: center;
+    background: sandybrown;
+}
+
+.lingonberry {
+    border-top: 1px solid black ;
+    border-bottom: 1px solid black;
+    padding: 1em;
+    height: 10%;
+    width: 30%;
+    text-align: center;
+    background: lightcoral;
+}
