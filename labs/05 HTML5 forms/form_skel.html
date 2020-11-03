@@ -1,62 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 	<!--
 	This page demonstrates a form.
 	-->
 	<head>
 		<meta charset="utf-8"/>
 		<title>Demonstrating HTML forms</title>
+		<link href="css/form.css" type="text/css" rel="stylesheet">
 	</head>
-	
 	<body>
 		<h1>Turnitin</h1>
 		<form  lang="fi" action="">
 			<div>
-				Name: <input type="text" name="studentname"/>
+				<fieldset>
+					<legend>Name</legend>
+				<input type="text" name="studentname" placeholder="Nimi"  oninvalid="this.setCustomValidity('Syötä opiskelijan nimi tekstinä')"
+							 oninput="this.setCustomValidity('')"/>
+				</fieldset>
 			</div>
 			<div>
-				Student id: <input type="text" name="id"  />
+				<fieldset>
+					<legend>Student id</legend>
+				<input type="number" name="id" placeholder="1909090" pattern="^\d{7}$" oninvalid="this.setCustomValidity('Syötä opiskelijanumero numeroina')"
+								   oninput="this.setCustomValidity('')"/>
+				</fieldset>
 			</div>
 			<div>
-				Email:
-				<!--
-				Make an input named "email"
-				-->
+				<fieldset>
+					<legend>Email</legend>
+				<input type="email" name="email" placeholder="snail@mail.com" pattern="^\S+@\S+\.\S+$" oninvalid="this.setCustomValidity('Syötä email-osoite')"
+							  oninput="this.setCustomValidity('')"/>
+				</fieldset>
 			</div>
 			<div>
-				Assignment:
-				<!--
-				Make an input named "assignment"
-				-->
-				
-			</div>
-
-			<div>
-				Code:
-				<!--
-				Make an input named "code" which is a text area to put student's code into.
-				-->
-				
+				<fieldset>
+					<legend>Assignment</legend>
+				<input type="text" name="assignment" placeholder="Tehtävän nimi" oninvalid="this.setCustomValidity('Syöte assignment')"
+								   oninput="this.setCustomValidity('')"/>
+				</fieldset>
 			</div>
 			<div>
-				Cheat:
-			<!--
-				Make an input named "cheat" which is a check box the student must check.
-			-->
+				<fieldset>
+					<legend>Code</legend>
+				<textarea name="code" placeholder="INSERT koodi" oninvalid="this.setCustomValidity('Syötä koodia')"
+							 oninput="this.setCustomValidity('')"></textarea>
+				</fieldset>
 			</div>
 			<div>
-				Pay:
-			<!--
-				Make an input named "payment" which is a radio box with possible values of visa, paypal, mastercard
-			-->
+				<fieldset>
+					<legend>Cheat</legend>
+				<Label><input type="checkbox" name="cheat"/>Cheat</Label>
+				</fieldset>
 			</div>
 			<div>
-				Score:
-			<!--
-				Make an input named "score" which is a list of choices for the score 
-			-->
+				<fieldset>
+					<legend>Payment</legend>
+				<label><input type="radio" name="payment" value="visa">Visa</label><br>
+				<label><input type="radio" id="paypal" name="payment" value="paypal">Paypal</label><br>
+				<label><input type="radio" id="mastercard" name="payment" value="male">Mastercard</label>
+				</fieldset>
 			</div>
-			<input type="submit" />
+			<div>
+				<fieldset>
+					<legend>Score</legend>
+				<select name="score">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+				</select>
+				</fieldset>
+			</div>
+			<br><input type="submit" />
 		</form>
 		<a href="http://jigsaw.w3.org/css-validator/check/referer">Validate</a>
 	</body>

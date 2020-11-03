@@ -1,0 +1,17 @@
+fieldset {
+    width: 12%;
+    background: #eeeeee;
+}
+
+div {
+    margin-top: 0.7em;
+}
+
+h1 {
+    font-family: Calibri;
+    font-size: 2em;
+}
+
+body {
+    padding-left: 2%;
+}
