@@ -33,7 +33,7 @@ var fiat = {
 			if (this.fuel > 0) {
 				console.log(this.make + " " +
 				      this.model + " goes zoom zoom!");
-				this.fuel = this.fuel - 1;
+				updateFuel();
 			} else {
 				console.log("Uh oh, out of fuel.");
 				this.stop();
@@ -41,6 +41,11 @@ var fiat = {
 		} else {
 			console.log("You need to start the engine first.");
 		}
+
+		//ilmeisesti lambdafunktiota käyttämällä voisi olla this.fuel
+		function updateFuel() {
+            fiat.fuel = fiat.fuel - 1;
+        }
 	},
 
 	addFuel: function(amount) {
