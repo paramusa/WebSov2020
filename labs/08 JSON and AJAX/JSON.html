@@ -18,6 +18,33 @@ var fido2 = {
 var fidoString = JSON.stringify(fido2);
 console.log("We made a string from a dog! " + fidoString);
 
+let employee = {
+  name: { first: "Colin",
+    middle: "Kilin",
+    second: "Stephen" },
+  title: "Assistant Lecturer",
+  wage: 2500
+}
+
+//Vasta kun sivu on luotu voidaan viitata esim bodyyn, koska script on bodyn yläpuolella
+window.onload = function(){
+
+//Div 1
+  let myString = JSON.stringify(employee);
+
+  let employeeDiv = document.createElement("div");
+  document.body.append(employeeDiv);
+
+  employeeDiv.innerHTML = myString;
+
+//Div 2
+  let myObject = JSON.parse(myString);
+  let employeeName = myObject.name;
+
+  let nameDiv = document.createElement("div");
+  nameDiv.append(JSON.stringify(employeeName));
+  document.body.append(nameDiv);
+}
   </script>
 </head>
 <body>

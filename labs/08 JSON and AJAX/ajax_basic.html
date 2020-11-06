@@ -9,15 +9,24 @@
   <span id="ajaxButton" style="cursor: pointer; text-decoration: underline">
     Make a request
   </span>
+  <div>
+      <input type="text" id="url">
+      <button type="button" id="button">Send</button>
+  </div>
 
 
   <script type="text/javascript">
   (function() {
     var httpRequest;
-    var testUrl = 'data/story.json';
+    //var testUrl = 'data/story.json';
     // Use Github Gist when no web server is available
-    // var testUrl = 'https://gist.githubusercontent.com/c0lin/571d38b984d41b44aacf/raw/story.json';
+    var testUrl = 'https://gist.githubusercontent.com/c0lin/571d38b984d41b44aacf/raw/story.json';
     document.getElementById("ajaxButton").onclick = function() { makeRequest(testUrl); };
+
+    //uusi button
+    document.getElementById("button").onclick = function() {
+        let url = document.getElementById("url").value;
+        makeRequest(url)}
 
     function makeRequest(url) {
       if (window.XMLHttpRequest) { // Mozilla, Safari, ...
@@ -40,7 +49,7 @@
       }
 
       // set a callback function for when the httpRequest completes
-      httpRequest.onreadystatechange = alertContents;
+      httpRequest.onreadystatechange = check404;
 
       // now do the actual AJAX request
       httpRequest.open('GET', url);
@@ -57,6 +66,16 @@
           alert('There was a problem with the request.');
         }
       }
+    }
+
+    function check404(){
+        if (httpRequest.readyState === 4) {
+            if (httpRequest.status === 404) {
+                alert("Site is DOWN!");
+            } else {
+                alert('No 404');
+            }
+        }
     }
   })();
   </script>
