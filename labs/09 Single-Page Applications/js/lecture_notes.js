@@ -1,3 +1,5 @@
+'use strict';
+
 var notes = [];
 
 /*
@@ -13,6 +15,16 @@ document.querySelector('#addPage button').onclick = function() {
 	console.log('add note');
 	var title = document.querySelector('#addPage input').value;
 	var note = document.querySelector('#addPage textarea').value;
+
+	let newnote = {
+		title: title,
+		note: note
+	}
+
+	notes.push(newnote);
+	document.querySelector('#addPage input').value = "";
+	document.querySelector('#addPage textarea').value = "";
+	loadList();
 };
 
 /*
@@ -20,10 +32,14 @@ document.querySelector('#addPage button').onclick = function() {
  */ 
 document.querySelector('nav > ul > li:nth-child(1)').onclick = function() {
 	console.log('first link clicked');
+	document.getElementById('editPage').style.display = 'none';
+	document.getElementById('addPage').style.display = 'block';
 };
 
 document.querySelector('nav > ul > li:nth-child(2)').onclick = function() {
 	console.log('second link clicked');
+	document.getElementById('addPage').style.display = 'none';
+	document.getElementById('editPage').style.display = 'block';
 };
 
 
@@ -36,12 +52,13 @@ function updateNote() {
 	var updated = {title: title, note: note};
 	console.log(updated);
 	notes[id] = {title: title, note: note};
+	loadList();
 }
 
 function display(element) {
 	console.log('display');
 	console.log(element.parentNode.parentNode.id);
-	var details = document.getElementById('details');
+	var details = document.getElementById('details'); //mikä?
 	var id = element.parentNode.parentNode.id;
 	document.querySelector('#editPage input').value = notes[id].title;
 	document.querySelector('#editPage textarea').value = notes[id].note;
@@ -70,7 +87,9 @@ function loadList() {
 	for (var i=0; i<notes.length; i++) {
 		var row = document.createElement('tr');
 		row.id = i;
-		row.innerHTML = '<td><a onclick="display(this)" href="#">'+notes[i].title+'</a></td><td><a onclick="rem(this)" class="delete" href="#">delete</a></td>';
+		row.innerHTML = '<td><a onclick="display(this)" href="#">'+notes[i].title+'</a></td>' +
+			'<td><a onclick="rem(this)" class="delete" href="#">delete</a></td>'
+		+ '<td><a onclick="updateNote()" class="update" href="#">update</a></td>';
 		table.appendChild(row);
 	}
 }
