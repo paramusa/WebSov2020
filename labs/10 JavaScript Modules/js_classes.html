@@ -42,6 +42,78 @@ console.log(darkRoast.order());
 var specialBlend = new Coffee("Special Blend", 200);
 console.log(specialBlend.order());
 
+Coffee.prototype.sip = function () {
+            console.log("Hmm, tasty.");
+        };
+
+coffee.sip();
+darkRoast.sip();
+
+
+function Tea(type, ounces) {
+    this.type = type;
+    this.ounces = ounces;
+    this.getSize = function() {
+        if (this.ounces === 8) {
+            return "small";
+        } else if (this.ounces === 12) {
+            return "medium";
+        } else if (this.ounces === 16) {
+            return "large";
+        }
+    };
+    this.order = function() {
+        let msg;
+        let time = this.getSteepTime();
+        switch (this.getSize()) {
+            case "small":
+            case "medium":
+            case "large":
+                if (time != 0){
+                    msg = "You've ordered a " + this.getSize() + " " + this.type + " tea. It has a steep time of " + time + " minutes.";
+                    break;
+                } else {
+                    msg = "We don't serve " + type + " tea."
+                }
+            default:
+                msg = "We don't have a " + this.type + " tea in that size!";
+                break;
+        }
+        return msg;
+    };
+    this.getSteepTime = function () {
+        if (type == "white"){
+            return 2;
+        }
+
+        if (type == "green") {
+            return 3;
+        }
+
+        if (type == "black") {
+            return 4;
+        }
+
+        return 0;
+    };
+}
+
+var whitetea = new Tea("white", 12);
+console.log(whitetea.order());
+
+var greentea = new Tea("green", 16);
+console.log(greentea.order());
+
+var blacktea = new Tea("black", 200);
+console.log(blacktea.order());
+
+Tea.prototype.sip = function () {
+    console.log("Hmm, tasty.");
+};
+
+whitetea.sip();
+greentea.sip();
+
 </script>
 </head>
 <body>
