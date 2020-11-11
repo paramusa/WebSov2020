@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <ul id="list">
+        <input v-model="msg" placeholder="Add item"><br><br>
+        <button v-on:click="add">Add</button>
+        <button v-on:click="deletef">Delete first</button><br><br>
+        <li v-for="(item, index) in items">
+            {{ item.message }}
+            <button v-on:click="deleteitem(index)">Delete</button>
+        </li>
+    </ul>
+</div>
+</body>
+<!-- kehitysversio, jossa hyödyllistä infoa konsolissa -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            msg: '',
+            items: [
+                { message: 'Foo' },
+                { message: 'Bar' }
+            ]
+        },
+        methods: {
+            add: function () {
+                this.items.push({message: this.msg});
+            },
+            deletef: function () {
+                this.items.splice(0,1);
+            },
+            deleteitem: function (index) {
+                this.items.splice(index,1);
+            }
+        }
+    })
+</script>
+</html>

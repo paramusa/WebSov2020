@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <span>{{count}}</span><br><br>
+    <button v-on:click="minus">-</button>
+    <button v-on:click="zero">0</button>
+    <button v-on:click="plus">+</button>
+</div>
+</body>
+<!-- kehitysversio, jossa hyödyllistä infoa konsolissa -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            count: 0
+        },
+        methods: {
+            minus: function () {
+                this.count -= 1;
+            },
+            zero: function () {
+                this.count = 0;
+            },
+            plus: function () {
+                this.count += 1;
+            }
+        }
+    })
+</script>
+</html>
