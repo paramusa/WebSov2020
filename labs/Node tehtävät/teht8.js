@@ -3,7 +3,6 @@
 var express = require('express');
 var app = express();
 
-const path = require("path");
 let mysql = require('mysql');
 const url = require("url");
 const util = require("util");
