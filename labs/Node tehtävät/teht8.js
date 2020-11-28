@@ -6,6 +6,7 @@ var app = express();
 let mysql = require('mysql');
 const url = require("url");
 const util = require("util");
+var path = require('path');
 
 var server = app.listen(8081, function () {
     var host = server.address().address
@@ -31,7 +32,7 @@ conn.connect(function(err) {
 
 
 app.get('/',  (req, res) => {
-    res.sendFile((path.join(__dirname, 'listofevents.html')));
+    res.sendFile((path.join(__dirname, 'teht7/listofevents.html')));
 });
 
 app.get("/api/location", function (req, res) {
