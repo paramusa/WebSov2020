@@ -3,7 +3,7 @@
     <h1>Tänne reseptejä</h1>
     <div class="lista">
       <div class="laatikko" v-for="resepti in reseptit" :key="resepti.id">
-        <reseptikomponentti :resepti="resepti"></reseptikomponentti>
+        <reseptikomponentti :resepti="resepti" @click="$router.push({ name: 'Resepti', params: { id: resepti.id } })"></reseptikomponentti>
       </div>
     </div>
   </div>
@@ -21,9 +21,10 @@ export default {
   },
   setup() {
     const state = reactive({
-
+      //data tänne
     })
 
+    //Computed, joka tuo storesta reseptit
     const reseptit = computed(() => store.state.reseptit);
 
     return {
@@ -46,4 +47,7 @@ export default {
   width: 200px;
 }
 
+.laatikko:hover {
+  background: whitesmoke;
+}
 </style>

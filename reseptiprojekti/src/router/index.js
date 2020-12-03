@@ -9,8 +9,8 @@ const routes = [
         component: Reseptilista
     },
     {
-        path: "/reseptisivu/:id",
-        name: "Reseptisivu",
+        path: "/resepti/:id",
+        name: "Resepti",
         component: Reseptisivu
     }
 ];
