@@ -11,41 +11,24 @@
 
 <script>
 import reseptikomponentti from "@/components/reseptikomponentti";
+import { reactive, computed } from 'vue';
+import store from '@/store';
 
 export default {
   name: "reseptilista",
   components: {
     reseptikomponentti
   },
-  data() {
+  setup() {
+    const state = reactive({
+
+    })
+
+    const reseptit = computed(() => store.state.reseptit);
+
     return {
-      reseptit: [
-        {
-          id: 1,
-          nimi: "Alpakka",
-          teksti: "Paista ja nauti"
-        },
-        {
-          id: 2,
-          nimi: "Paahtoleipä",
-          teksti: "Paahda ja syö"
-        },
-        {
-          id: 3,
-          nimi: "Roiskeläppä",
-          teksti: "Mikroon ja polta suu"
-        },
-        {
-          id: 4,
-          nimi: "Tonnikalapurkki",
-          teksti: "Avaa ja maiskis"
-        },
-        {
-          id: 5,
-          nimi: "Omena",
-          teksti: "Siis vaan syö"
-        }
-      ]
+      state,
+      reseptit
     }
   }
 }

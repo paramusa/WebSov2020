@@ -6,11 +6,19 @@
 </template>
 
 <script>
+import { useStore } from 'vuex';
 
 export default {
   name: 'App',
   components: {
 
+  },
+  setup(){
+    const store = useStore();
+
+    return {
+
+    }
   }
 }
 </script>
