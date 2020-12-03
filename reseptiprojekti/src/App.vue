@@ -1,17 +1,16 @@
 <template>
   <div id="app">
     <img alt="logo" src="./assets/logo.jpg">
-    <Reseptilista/>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import Reseptilista from "@/components/reseptilista";
 
 export default {
   name: 'App',
   components: {
-    Reseptilista
+
   }
 }
 </script>
