@@ -1,9 +1,12 @@
 <template>
-  <div class="reseptilistakomponentti">
+  <div>
     <h1>Tänne reseptejä</h1>
-    <div class="lista">
-      <div class="laatikko" v-for="resepti in reseptit" :key="resepti.id">
-        <reseptikomponentti :resepti="resepti" @click="$router.push({ name: 'Resepti', params: { id: resepti.id } })"></reseptikomponentti>
+    <div class="reseptilistakomponentti">
+      <lisäysform/>
+      <div class="lista">
+        <div class="laatikko" v-for="resepti in reseptit" :key="resepti.id">
+          <reseptikomponentti :resepti="resepti" @click="$router.push({ name: 'Resepti', params: { id: resepti.id } })"/>
+        </div>
       </div>
     </div>
   </div>
@@ -11,13 +14,15 @@
 
 <script>
 import reseptikomponentti from "@/components/reseptikomponentti";
+import lisäysform from "@/components/lisäysform";
 import { reactive, computed } from 'vue';
 import store from '@/store';
 
 export default {
   name: "reseptilista",
   components: {
-    reseptikomponentti
+    reseptikomponentti,
+    lisäysform
   },
   setup() {
     const state = reactive({
@@ -36,6 +41,13 @@ export default {
 </script>
 
 <style scoped>
+
+.reseptilistakomponentti {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
 
 .lista {
   display: flex;

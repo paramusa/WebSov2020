@@ -2,37 +2,58 @@ import { createStore } from 'vuex';
 
 export default createStore( {
     state: {
+        reseptit_used_id: [1,2,3,4,5],
         reseptit: [
             {
                 id: 1,
                 nimi: "Alpakka",
-                teksti: "Paista ja nauti"
+                ohjeet: "Paista ja nauti"
             },
             {
                 id: 2,
                 nimi: "Paahtoleipä",
-                teksti: "Paahda ja syö"
+                ohjeet: "Paahda ja syö"
             },
             {
                 id: 3,
                 nimi: "Roiskeläppä",
-                teksti: "Mikroon ja polta suu"
+                ohjeet: "Mikroon ja polta suu"
             },
             {
                 id: 4,
                 nimi: "Tonnikalapurkki",
-                teksti: "Avaa ja maiskis"
+                ohjeet: "Avaa ja maiskis"
             },
             {
                 id: 5,
                 nimi: "Omena",
-                teksti: "Siis vaan syö"
+                ohjeet: "Siis vaan syö"
             }
         ]
     },
     //Functions that affect the state
-    mutations: {},
+    mutations: {
+        ADD_RECIPE(state, resepti) {
+
+            let nextID = 1;
+            let newRecipe = resepti;
+
+            for (;; nextID++) {
+                if (!state.reseptit_used_id.includes(nextID)){
+                    break;
+                }
+            }
+
+            newRecipe.id = nextID;
+
+            state.reseptit.push(newRecipe);
+        }
+    },
     //Functions called elsewhere that call mutations
-    actions: {},
+    actions: {
+        async addRecipe({commit}, resepti) {
+            commit('ADD_RECIPE', resepti);
+        }
+    },
     getters: {}
 });
