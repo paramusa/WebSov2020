@@ -1,14 +1,16 @@
 <template>
   <div class="reseptisivu">
+    <button @click="deleteRecipe">Delete</button>
     <p>Tähän vaikka kuva</p>
-    <h3>{{reseptit[$route.params.id-1].nimi }}</h3>
-    <p>{{ reseptit[$route.params.id - 1].ohjeet }}</p>
+    <h3>{{ resepti.nimi}}</h3>
+    <p>{{ resepti.ohjeet }}</p>
   </div>
 </template>
 
 <script>
 import {computed, reactive} from "vue";
-import store from "@/store";
+import {useStore} from "vuex";
+import {useRoute, useRouter} from "vue-router";
 
 export default {
   name: "reseptisivu",
@@ -17,12 +19,27 @@ export default {
       //data tänne
     })
 
+    const store = useStore();
+    const route = useRoute();
+    const router = useRouter();
+
     //Computed, joka tuo storesta reseptit
     const reseptit = computed(() => store.state.reseptit);
-    //HUOM jos id:t ei ole 123 järjestyksessä tuo routeparamsid -1 ei toimi
+
+    //nykyinen resepti
+    const resepti = store.getters.getRecipe(route.params.id);
+
+    function deleteRecipe() {
+      console.log("Deleted " + resepti.nimi);
+      store.dispatch('deleteRecipe', route.params.id);
+      router.push('/');
+    }
+
     return {
       state,
-      reseptit
+      reseptit,
+      resepti,
+      deleteRecipe
     }
   }
 }
