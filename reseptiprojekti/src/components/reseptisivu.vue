@@ -2,8 +2,8 @@
   <div class="reseptisivu">
     <button @click="deleteRecipe">Delete</button>
     <p>Tähän vaikka kuva</p>
-    <h3>{{ resepti.nimi}}</h3>
-    <p>{{ resepti.ohjeet }}</p>
+    <h3>{{ resepti.name }}</h3>
+    <p>{{ resepti.content }}</p>
   </div>
 </template>
 
@@ -30,8 +30,8 @@ export default {
     const resepti = store.getters.getRecipe(route.params.id);
 
     function deleteRecipe() {
-      console.log("Deleted " + resepti.nimi);
-      store.dispatch('deleteRecipe', route.params.id);
+      console.log("Deleted " + resepti.name);
+      store.dispatch('deleteRecipe', resepti.id);
       router.push('/');
     }
 

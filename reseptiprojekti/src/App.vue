@@ -17,8 +17,11 @@ export default {
     const store = useStore();
 
     return {
-
+      store
     }
+  },
+  mounted() {
+    useStore().dispatch('refreshAllRecipesFromDB');
   }
 }
 </script>

@@ -3,7 +3,7 @@
     <h1>Tänne reseptejä</h1>
     <div class="reseptilistakomponentti">
       <lisäysform/>
-      <div class="lista">
+      <div class="lista" v-if="reseptit">
         <div class="laatikko" v-for="resepti in reseptit" :key="resepti.id">
           <reseptikomponentti :resepti="resepti" @click="$router.push({ name: 'Resepti', params: { id: resepti.id } })"/>
         </div>

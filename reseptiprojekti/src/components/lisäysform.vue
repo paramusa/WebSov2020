@@ -3,9 +3,9 @@
     <div class="container">
       <form>
         <label for="nimi">Reseptin nimi</label>
-        <input id="nimi" type="text" v-model="state.nimi">
+        <input id="nimi" type="text" v-model="state.name">
         <label for="ohjeet">Ohjeet</label>
-        <textarea id="ohjeet" rows="4" v-model="state.ohjeet"/>
+        <textarea id="ohjeet" rows="4" v-model="state.content"/>
         <button type="button" @click="lisaaResepti">Lisää</button>
       </form>
     </div>
@@ -21,21 +21,21 @@ name: "lisäysform",
   setup() {
     const state = reactive({
       //data tänne
-      nimi: '',
-      ohjeet: ''
+      name: '',
+      content: ''
     })
 
     const store = useStore();
 
     function lisaaResepti() {
-      if (state.nimi && state.ohjeet) {
+      if (state.name && state.content) {
         store.dispatch('addRecipe', {
-          nimi: state.nimi,
-          ohjeet: state.ohjeet
+          name: state.name,
+          content: state.content
         });
 
-        state.nimi = '';
-        state.ohjeet = '';
+        state.name = '';
+        state.content = '';
 
       }
     }
