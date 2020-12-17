@@ -22,6 +22,7 @@ db.once('open', () => console.log('Connected to MongoDB'));
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('./public'));
+    app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'));
 }
 
 const server = app.listen(PORT, function () {
