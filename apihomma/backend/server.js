@@ -20,13 +20,6 @@ const db = mongoose.connection;
 db.on('error', (error) => console.error(error));
 db.once('open', () => console.log('Connected to MongoDB'));
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, 'public')));
-    app.get('/*', (req, res) => {
-        res.sendFile(path.join(__dirname, 'public', 'index.html'));
-    console.log("static log juttu");
-    });
-}
 
 app.use('/api/', router);
 
