@@ -9,7 +9,7 @@ app.use('/api/', router);
 
 app.use(cors());
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT;
 mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://reseptiuser:reseptiuser@resepticluster.etwl4.mongodb.net/reseptisivu?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true
