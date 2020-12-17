@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const router = require('./router');
+const path = require('path');
 
 const app = express();
 app.use(express.json());
@@ -9,7 +10,7 @@ app.use(express.json());
 
 app.use(cors());
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://reseptiuser:reseptiuser@resepticluster.etwl4.mongodb.net/reseptisivu?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -22,7 +23,10 @@ db.once('open', () => console.log('Connected to MongoDB'));
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, 'public')));
-    app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
+    app.get('/*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    console.log("static log juttu");
+    });
 }
 
 app.use('/api/', router);
