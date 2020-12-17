@@ -5,7 +5,7 @@ const router = require('./router');
 
 const app = express();
 app.use(express.json());
-app.use('/api/', router);
+
 
 app.use(cors());
 
@@ -24,6 +24,8 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, 'public')));
     app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
 }
+
+app.use('/api/', router);
 
 const server = app.listen(PORT, function () {
     const host = server.address().address;
