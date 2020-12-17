@@ -9,8 +9,8 @@ app.use('/api/', router);
 
 app.use(cors());
 
-const PORT = process.env.PORT || 8080;
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/reseptisivu', {
+const PORT = process.env.PORT;
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -21,7 +21,7 @@ db.on('error', (error) => console.error(error));
 db.once('open', () => console.log('Connected to MongoDB'));
 
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('../reseptisivu/dist'));
+    app.use(express.static('./public'));
 }
 
 const server = app.listen(PORT, function () {
