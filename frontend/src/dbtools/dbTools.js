@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const apiserver = process.env.APISERVER;
+const apiserver = process.env.APISERVER || 'https://reseptiprojekti-api.herokuapp.com';
 
 //get all
 async function getAllRecipes() {
