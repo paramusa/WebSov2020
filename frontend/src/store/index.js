@@ -3,34 +3,8 @@ const db = require('../dbtools/dbTools');
 
 export default createStore( {
     state: {
-        reseptit_used_id: [1,2,3,4,5],
-        reseptit: [
-            {
-                id: 1,
-                name: "Alpakka",
-                content: "Paista ja nauti"
-            },
-            {
-                id: 2,
-                name: "Paahtoleipä",
-                content: "Paahda ja syö"
-            },
-            {
-                id: 3,
-                name: "Roiskeläppä",
-                content: "Mikroon ja polta suu"
-            },
-            {
-                id: 4,
-                name: "Tonnikalapurkki",
-                content: "Avaa ja maiskis"
-            },
-            {
-                id: 5,
-                name: "Omena",
-                content: "Siis vaan syö"
-            }
-        ]
+        reseptit_used_id: [],
+        reseptit: []
     },
     //Functions that affect the state
     mutations: {
