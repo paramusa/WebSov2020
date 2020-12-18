@@ -51,12 +51,15 @@ name: "lisäysform",
 <style scoped>
 
 .formkomponentti {
-  width: 40%;
+  width: 100%;
   margin: auto;
 }
 
 .container {
   background: bisque;
+  width: 40%;
+  margin: auto;
+  border: 5px black;
 }
 
 form {

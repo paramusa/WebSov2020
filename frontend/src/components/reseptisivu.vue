@@ -1,7 +1,9 @@
 <template>
   <div class="reseptisivu">
+    <div class="imagecontainer">
+      <img src="../assets/placeholder.png">
+    </div>
     <button @click="deleteRecipe">Delete</button>
-    <p>Tähän vaikka kuva</p>
     <h3>{{ resepti.name }}</h3>
     <p>{{ resepti.content }}</p>
   </div>
@@ -49,5 +51,19 @@ export default {
 <style scoped>
 p {
   color: gray;
+}
+
+.reseptisivu {
+  width: 80%;
+  margin: auto;
+}
+
+.imagecontainer {
+  width: 100%;
+}
+
+img {
+  width: 50%;
+  margin: 50px;
 }
 </style>

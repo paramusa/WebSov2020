@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Tänne reseptejä</h1>
+    <h1>Reseptilista</h1>
     <div class="reseptilistakomponentti">
       <lisäysform/>
       <div class="lista" v-if="reseptit">
@@ -53,10 +53,13 @@ export default {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  margin: auto;
+  margin-top: 20px;
 }
 
 .laatikko {
   width: 200px;
+  background: white;
 }
 
 .laatikko:hover {

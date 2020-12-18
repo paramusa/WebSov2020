@@ -1,12 +1,13 @@
 <template>
   <div id="app">
-    <img alt="logo" src="./assets/logo.jpg">
+    <img alt="logo" src="./assets/logo.jpg" @click="router.push('/')">
     <router-view/>
   </div>
 </template>
 
 <script>
 import { useStore } from 'vuex';
+import {useRouter} from "vue-router";
 
 export default {
   name: 'App',
@@ -15,9 +16,11 @@ export default {
   },
   setup(){
     const store = useStore();
+    const router = useRouter();
 
     return {
-      store
+      store,
+      router
     }
   },
   mounted() {
@@ -33,5 +36,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+body {
+  background: #f0fafa;
 }
 </style>

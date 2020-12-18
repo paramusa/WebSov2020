@@ -1,8 +1,7 @@
 <template>
   <div class="reseptikomponentti">
-    <p>Tähän vaikka kuva</p>
+    <p>Resepti {{ resepti.id }}</p>
     <h3>{{ resepti.name }}</h3>
-    <p>{{ resepti.content }}</p>
   </div>
 </template>
 
@@ -25,6 +24,7 @@ export default {
   border: 1px #2c3e50 solid;
   margin: 5px 2px;
   cursor: pointer;
+  padding: 20px 5px;
 }
 
 p {
