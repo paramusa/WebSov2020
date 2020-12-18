@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Resepti = require('./reseptischema');
-const { validator } = require('./validator.js')
+const { validator } = require('validator.js')
 
 //Get kaikki reseptit
 router.get('/recipes', async (req, res) => {
