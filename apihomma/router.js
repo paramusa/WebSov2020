@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Resepti = require('./reseptischema');
-
+const { validator } = require('./validator.js')
 
 //Get kaikki reseptit
 router.get('/recipes', async (req, res) => {
@@ -14,7 +14,7 @@ router.get('/recipes', async (req, res) => {
 });
 
 //post resepti
-router.post('/recipes', async (req, res) => {
+router.post('/recipes', validator, async (req, res) => {
     const resepti = new Resepti({
         id: req.body.id,
         name: req.body.name,
