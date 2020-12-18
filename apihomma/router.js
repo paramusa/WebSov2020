@@ -31,7 +31,7 @@ router.post('/recipes', validator, async (req, res) => {
 });
 
 //update resepti
-router.patch('/recipes/:id', async (req, res) => {
+router.patch('/recipes/:id', validator, async (req, res) => {
     try {
             const updated = await Resepti.findOneAndUpdate({id: req.params.id}, req.body, {new: true});
             res.json({ message: updated})
