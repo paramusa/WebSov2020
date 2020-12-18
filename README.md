@@ -3,7 +3,10 @@ https://reseptiprojekti.herokuapp.com/
 
 Huom! API-serverillä kestää hetki käynnistyä ennen kuin näkyy esimerkkireseptejä.
 
+Kansiot:
 
+APIserver sisältää apiserverin. Backend sisältää sivun tarjoavan serverin.
+Frontendissä on itse sivu.
 
 ----   REST   ----
 
