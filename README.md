@@ -25,3 +25,7 @@ Yhden reseptin lisäys POST.
 Yhden muokkaus PATCH, (en ehtinyt lisätä ominaisuutta joka käyttää tätä)
 
 Yhden poisto DELETE
+
+Reseptiobjektit ovat muotoa 
+
+{ id: 1, name: Piirakka, content: Valmista näin ja näin}
