@@ -1,5 +1,8 @@
 const { check, validationResult } = require('express-validator');
 
+/**
+ * Validates added recipe info
+ */
 exports.validator = [
     check('id')
         .trim()

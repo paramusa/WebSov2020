@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 
+/**
+ * Schema for the recipe object.
+ */
 const reseptiSchema = new mongoose.Schema({
     id: {
         type: Number,

@@ -2,6 +2,7 @@ import { createWebHistory, createRouter } from "vue-router";
 import Reseptilista from "@/components/reseptilista";
 import Reseptisivu from "@/components/reseptisivu";
 
+//Vue-routers routes
 const routes = [
     {
         path: "/",
